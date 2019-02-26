@@ -12,9 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2019_02_06_162420) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "events", force: :cascade do |t|
     t.datetime "event_date"
     t.string "location"
@@ -23,8 +20,8 @@ ActiveRecord::Schema.define(version: 2019_02_06_162420) do
   end
 
   create_table "events_songs", force: :cascade do |t|
-    t.bigint "event_id"
-    t.bigint "song_id"
+    t.integer "event_id"
+    t.integer "song_id"
     t.integer "order"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -36,8 +33,8 @@ ActiveRecord::Schema.define(version: 2019_02_06_162420) do
     t.integer "order"
     t.string "singer"
     t.integer "status", default: 0
-    t.bigint "event_id"
-    t.bigint "events_song_id"
+    t.integer "event_id"
+    t.integer "events_song_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["event_id"], name: "index_performances_on_event_id"

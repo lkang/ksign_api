@@ -1,0 +1,2 @@
+class EventsSongsController < ApplicationController
+end

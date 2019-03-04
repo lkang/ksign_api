@@ -1,24 +1,19 @@
-# README
+# ksign_api
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Karaoke Sign Up API
 
-Things you may want to cover:
+This is the API for a Live Band Karaoke Website. The UI is at https://github.com/lkang/ksign_ui
 
-* Ruby version
+The API uses sqlite3 database; however config/pg_database.yml is included just in case you'd like to use psql.
 
-* System dependencies
+A couple rake commands exist to seed the db:
 
-* Configuration
+    rake seed_db:read_csv                   # Initialize the songs table from csv
+    rake seed_db:events_songs               # Add events_songs to the last event
+    rake seed_db:performances               # Create performances for Dave Grohl for each events_song
 
-* Database creation
+This is a rails 5 app. To start the server:
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+    $ bundle install
+    $ bundle exec rake db:create db:migrate
+    $ bundle exec rails s
